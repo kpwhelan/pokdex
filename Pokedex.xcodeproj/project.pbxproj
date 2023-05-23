@@ -18,6 +18,7 @@
 		F886707A2A153D1000375B5D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F88670792A153D1000375B5D /* SwiftyJSON */; };
 		F8A034962A197D640004ADA7 /* PokemonLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A034952A197D640004ADA7 /* PokemonLogoView.swift */; };
 		F8A034982A197E150004ADA7 /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8A034972A197E150004ADA7 /* Pokemon Solid.ttf */; };
+		F8A0349B2A1D58DB0004ADA7 /* PokemonDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0349A2A1D58DB0004ADA7 /* PokemonDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F8A034952A197D640004ADA7 /* PokemonLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLogoView.swift; sourceTree = "<group>"; };
 		F8A034972A197E150004ADA7 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pokemon Solid.ttf"; path = "../../../../../Downloads/pokmon/Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		F8A034992A197E660004ADA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F8A0349A2A1D58DB0004ADA7 /* PokemonDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 				F88670742A153C1C00375B5D /* PokemonListView.swift */,
 				F8A034952A197D640004ADA7 /* PokemonLogoView.swift */,
 				F8A034972A197E150004ADA7 /* Pokemon Solid.ttf */,
+				F8A0349A2A1D58DB0004ADA7 /* PokemonDescription.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A0349B2A1D58DB0004ADA7 /* PokemonDescription.swift in Sources */,
 				F86F6C2E2A1686B4001AA842 /* Pokemon.swift in Sources */,
 				F88670772A153C3C00375B5D /* PokemonView.swift in Sources */,
 				F86F6C282A15A09A001AA842 /* PokemonListViewModel.swift in Sources */,

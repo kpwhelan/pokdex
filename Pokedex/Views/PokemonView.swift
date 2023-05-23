@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PokemonView: View {
-    @ObservedObject private var viewModel: PokemonViewModel
+    @ObservedObject var viewModel: PokemonViewModel
+    @State private var showDescription = false
     
     init(pokemon: Pokemon) {
         viewModel = PokemonViewModel(pokemon: pokemon)
@@ -29,23 +30,20 @@ struct PokemonView: View {
 
                 Text(self.viewModel.pokemon.name.capitalized)
                     .font(.largeTitle)
-                Text("Description")
-                    .font(.headline)
+                Button("Description") {
+                    showDescription.toggle()
+                }
+                .sheet(isPresented: $showDescription) {
+                    PokemonDescription(description: viewModel.pokemon.description, name: viewModel.pokemon.name)
+                }
                 Spacer(minLength:
                         20)
-                Text(viewModel.pokemon.description)
-                    .font(.body)
             }
             .padding()
         }
         .task {
             await viewModel.getPokemonData()
         }
-//        .onAppear {
-//            DispatchQueue.main.async {
-//                viewModel.pokemon = self.pokemon
-//            }
-//        }
     }
 }
 
