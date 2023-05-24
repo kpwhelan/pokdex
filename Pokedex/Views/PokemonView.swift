@@ -30,14 +30,24 @@ struct PokemonView: View {
 
                 Text(self.viewModel.pokemon.name.capitalized)
                     .font(.largeTitle)
-                Button("Description") {
-                    showDescription.toggle()
+                Spacer(minLength: 20)
+                
+                HStack {
+                    Text("Description:")
+                        .fontWeight(.bold)
+                    Button("Read") {
+                        showDescription.toggle()
+                    }
+                    .sheet(isPresented: $showDescription) {
+                        PokemonDescription(description: viewModel.pokemon.description, name: viewModel.pokemon.name)
+                    }
                 }
-                .sheet(isPresented: $showDescription) {
-                    PokemonDescription(description: viewModel.pokemon.description, name: viewModel.pokemon.name)
-                }
-                Spacer(minLength:
-                        20)
+                Spacer()
+                RowDataView(rowName: "Type(s)", data: viewModel.pokemon.types.joined(separator: "\n"))
+                RowDataView(rowName: "Base Happiness:", data: String(viewModel.pokemon.baseHappiness))
+                RowDataView(rowName: "Capture Rate:", data: String(viewModel.pokemon.captureRate))
+                RowDataView(rowName: "Mythical:", data: String(viewModel.pokemon.isMythical).capitalized)
+                RowDataView(rowName: "Legendary:", data: String(viewModel.pokemon.isLegendary).capitalized)
             }
             .padding()
         }

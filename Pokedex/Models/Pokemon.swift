@@ -12,10 +12,11 @@ struct Pokemon {
     var name: String
     var imageUrl: String
     var description: String
-}
-
-class globalPokemonList: ObservableObject {
-    @Published var pokemonList = [Pokemon]()
+    var types: [String]
+    var baseHappiness: Int
+    var captureRate: Int
+    var isLegendary: Bool
+    var isMythical: Bool
 }
 
 struct ListResponse: Codable {
@@ -27,6 +28,8 @@ struct ListResult: Codable {
     var url: String
 }
 
+
+//Retrieving data from https://pokeapi.co/api/v2/pokemon/{name or id}
 struct PokemonResponse: Codable {
     var sprites: Sprites
 }
@@ -43,10 +46,14 @@ struct PokemonImage: Codable {
     var front_default: String
 }
 
+
+//Retrieving data from https://pokeapi.co/api/v2/pokemon-species/{name or id}
 struct PokemonInfoResponse: Codable {
     var base_happiness: Int
     var capture_rate: Int
     var flavor_text_entries: [FlavorTextEntry]
+    var is_legendary: Bool
+    var is_mythical: Bool
 }
 
 struct FlavorTextEntry: Codable {
@@ -58,3 +65,21 @@ struct PokemonLanguage: Codable {
     var name: String
     var url: String
 }
+
+
+
+//For retrieving Pokemon types from https://pokeapi.co/api/v2/pokemon-form/{name or id}
+struct PokemonFormResponse: Codable {
+    var types: [Types]
+}
+
+struct Types: Codable {
+    var type: TypeData
+}
+
+struct TypeData: Codable {
+    var name: String
+}
+
+
+

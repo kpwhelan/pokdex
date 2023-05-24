@@ -19,7 +19,7 @@ struct PokemonDescription: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(name.capitalized)
-                .font(.headline)
+                .font(.largeTitle)
             ScrollView {
                 Text(description)
                     .font(.body)

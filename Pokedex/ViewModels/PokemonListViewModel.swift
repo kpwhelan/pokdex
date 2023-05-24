@@ -27,7 +27,7 @@ final class PokemonListViewModel: ObservableObject {
             if let decodedResponse = try? JSONDecoder().decode(ListResponse.self, from: data) {
                 for result in decodedResponse.results {
                     DispatchQueue.main.async {
-                        self.pokemonList.append(Pokemon(id: UUID(), name: result.name, imageUrl: String(), description: String()))
+                        self.pokemonList.append(Pokemon(id: UUID(), name: result.name, imageUrl: String(), description: String(), types: [String](), baseHappiness: Int(), captureRate: Int(), isLegendary: Bool(), isMythical: Bool()))
                     }
                 }
             }
