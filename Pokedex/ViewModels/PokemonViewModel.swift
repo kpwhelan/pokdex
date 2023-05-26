@@ -36,7 +36,13 @@ final class PokemonViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: url)
 
             if let decodedResponse = try? JSONDecoder().decode(PokemonResponse.self, from: data) {
-                pokemon.imageUrl = decodedResponse.sprites.other.home.front_default
+                pokemon.imageUrl       = decodedResponse.sprites.other.home.front_default
+                pokemon.baseExperience = decodedResponse.base_experience
+                pokemon.height         = decodedResponse.height
+                
+                for move in decodedResponse.moves {
+                    pokemon.moves.append(move.move.name.capitalized)
+                }
 
             }
         } catch {
@@ -55,7 +61,9 @@ final class PokemonViewModel: ObservableObject {
 
             if let decodedResponse = try? JSONDecoder().decode(PokemonInfoResponse.self, from: data) {
                 pokemon.baseHappiness = decodedResponse.base_happiness
-                pokemon.captureRate = decodedResponse.capture_rate
+                pokemon.captureRate   = decodedResponse.capture_rate
+                pokemon.isMythical    = decodedResponse.is_mythical
+                pokemon.isLegendary   = decodedResponse.is_legendary
                 for item in decodedResponse.flavor_text_entries {
                     if item.language.name == "en" && !pokemon.description.contains(item.flavor_text.replacingOccurrences(of: "\n", with: " ")) {
 
@@ -78,8 +86,8 @@ final class PokemonViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: url)
 
             if let decodedResponse = try? JSONDecoder().decode(PokemonFormResponse.self, from: data) {
-                for thing in decodedResponse.types {
-                    pokemon.types.append(thing.type.name.capitalized)
+                for type in decodedResponse.types {
+                    pokemon.types.append(type.type.name.capitalized)
                 }
             }
         } catch {

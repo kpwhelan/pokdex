@@ -17,6 +17,9 @@ struct Pokemon {
     var captureRate: Int
     var isLegendary: Bool
     var isMythical: Bool
+    var baseExperience: Int
+    var height: Int
+    var moves: [String]
 }
 
 struct ListResponse: Codable {
@@ -32,6 +35,18 @@ struct ListResult: Codable {
 //Retrieving data from https://pokeapi.co/api/v2/pokemon/{name or id}
 struct PokemonResponse: Codable {
     var sprites: Sprites
+    var base_experience: Int
+    var height: Int
+    var moves: [MoveData]
+    var id: Int
+}
+
+struct MoveData: Codable {
+    var move: Move
+}
+
+struct Move: Codable {
+    var name: String
 }
 
 struct Sprites: Codable {

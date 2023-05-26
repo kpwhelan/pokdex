@@ -43,12 +43,17 @@ struct PokemonView: View {
                     }
                 }
                 Spacer()
-                RowDataView(rowName: "Type(s)", data: viewModel.pokemon.types.joined(separator: "\n"))
-                RowDataView(rowName: "Base Happiness:", data: String(viewModel.pokemon.baseHappiness))
-                RowDataView(rowName: "Capture Rate:", data: String(viewModel.pokemon.captureRate))
-                RowDataView(rowName: "Mythical:", data: String(viewModel.pokemon.isMythical).capitalized)
-                RowDataView(rowName: "Legendary:", data: String(viewModel.pokemon.isLegendary).capitalized)
-            }
+                Group {
+                    RowDataView(rowName: "Type(s)", data: viewModel.pokemon.types.joined(separator: "\n"))
+                    RowDataView(rowName: "Height:", data: String(viewModel.pokemon.height))
+                    RowDataView(rowName: "Base Experience", data: String(viewModel.pokemon.baseExperience))
+                    RowDataView(rowName: "Base Happiness:", data: String(viewModel.pokemon.baseHappiness))
+                    RowDataView(rowName: "Capture Rate:", data: String(viewModel.pokemon.captureRate))
+                    RowDataView(rowName: "Mythical:", data: String(viewModel.pokemon.isMythical).capitalized)
+                    RowDataView(rowName: "Legendary:", data: String(viewModel.pokemon.isLegendary).capitalized)
+                    RowDataView(rowName: "Moves:", data: viewModel.pokemon.moves.joined(separator: "\n"))
+                }
+                }
             .padding()
         }
         .task {

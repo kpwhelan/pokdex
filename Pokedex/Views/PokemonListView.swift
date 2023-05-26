@@ -15,7 +15,8 @@ struct PokemonListView: View {
         if searchText.isEmpty {
             return viewModel.pokemonList
         } else {
-            return viewModel.pokemonList.filter { $0.name.contains(searchText.lowercased()) }
+            return viewModel.pokemonList.filter {
+                $0.name.capitalized.contains(searchText) }
         }
     }
     
